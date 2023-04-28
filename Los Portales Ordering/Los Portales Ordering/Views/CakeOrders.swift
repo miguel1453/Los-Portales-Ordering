@@ -35,6 +35,11 @@ struct CakeOrdersView: View {
                            .padding()
                    }
                } else {
+//                   ScrollView{
+//                       ForEach(vm.cakesInOrder) { name in
+//                           Text(name)
+//                       }
+//                   }
                    ScrollView {
                        ForEach(vm.cakes) { cake in
                            NavigationLink(destination: CakeInfoView(cake: cake)) {

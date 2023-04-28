@@ -16,6 +16,7 @@ struct NewOrderView: View {
     @State private var customerName = ""
     @State private var customerNumber = ""
     @State private var cakePickupDate = Date()
+    @State private var cakePickupTime = ""
     @State private var cakeColor = Color(.blue)
     @State private var cakeSize = ""
     @State private var cakeMessage = ""
@@ -27,7 +28,6 @@ struct NewOrderView: View {
     }
   
     
-    let sizes = ["Pequeño", "Mediano", "Grande"]
     
     var body: some View {
         VStack {
@@ -42,7 +42,14 @@ struct NewOrderView: View {
                 TextField("Nombre y Appellido", text: $customerName)
                 TextField("Numero de celular", text: $customerNumber)
                 Section {
-                    DatePicker("Date & Time", selection: $cakePickupDate, in: Date()...)                        .datePickerStyle(.graphical)
+                    DatePicker("Date & Time", selection: $cakePickupDate, in: Date()..., displayedComponents: .date)                        .datePickerStyle(.graphical)
+                    Picker("Hora", selection: $cakePickupTime) {
+                        ForEach(Cake.times, id: \.self){
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                        
                         
                 }
                 Section {
@@ -51,7 +58,7 @@ struct NewOrderView: View {
                 Section {
                     ColorPicker("Color", selection: $cakeColor,supportsOpacity: false)
                     Picker("Tamaño", selection: $cakeSize) {
-                        ForEach(sizes, id: \.self) {
+                        ForEach(Cake.sizes, id: \.self) {
                             Text($0)
                         }
                     }
@@ -68,7 +75,7 @@ struct NewOrderView: View {
                     Button {
                         if allFieldsFilled {
                             showsheet.toggle()
-                            vm.uploadCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: cakePickupDate, cakeColor: cakeColor, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments)
+                            vm.uploadCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: cakePickupDate, cakePickupTime: cakePickupTime, cakeColor: cakeColor, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments)
                             vm.fetchCakes()
                         } else {
                             showingAlert.toggle()

@@ -18,18 +18,16 @@ class CakesViewModel: ObservableObject {
         self.fetchCakes()
     }
     
-    func uploadCake(customerName: String, customerNumber: String, cakePickupDate: Date, cakeColor: Color, cakeSize: String, cakeMessage: String, cakeImage: String, cakeComments: String) {
+    func uploadCake(customerName: String, customerNumber: String, cakePickupDate: Date, cakePickupTime: String, cakeColor: Color, cakeSize: String, cakeMessage: String, cakeImage: String, cakeComments: String) {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd yyyy, HH:mm"
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
+        formatter.dateFormat = "MMM dd yyyy"
         let dateString = formatter.string(from: cakePickupDate)
         
         let colorString = cakeColor.description
         
-        service.postCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: dateString, cakeColor: colorString, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments) { _ in }
-        }
+        service.postCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: dateString, cakePikckupTime: cakePickupTime, cakeColor: colorString, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments) { _ in }
+    }
     
     func fetchCakes() {
         print("DEBUG: fetchCAkes called")
@@ -37,8 +35,9 @@ class CakesViewModel: ObservableObject {
             self.cakes = cakes
         }
     }
-        
-    }
+    
+    
+}
     
 //    func sort() {
 //        cakes.sort {

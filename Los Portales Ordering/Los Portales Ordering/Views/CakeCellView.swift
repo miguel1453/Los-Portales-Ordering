@@ -10,14 +10,21 @@ import SwiftUI
 struct CakeCellView: View {
     let cake: Cake
     var body: some View {
-        VStack {
-            Text(cake.customerName)
-            Text(cake.cakeSize)
-            Text(cake.cakePickupDate)
+        HStack {
+            VStack {
+                Text("Nombre: \(cake.customerName)")
+                Text("Numero: \(cake.customerNumber)")
+            }
+            Spacer()
+            VStack {
+                Text(cake.cakePickupDate)
+                Text(cake.cakePickupTime)
+            }
         }
-        .frame(width: 350)
+        .foregroundColor(Color.black)
+        .frame(width: 300)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.1)))
     }
 }
 

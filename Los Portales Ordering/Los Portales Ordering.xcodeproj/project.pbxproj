@@ -61,7 +61,6 @@
 		7E72D53629F89449006860F1 = {
 			isa = PBXGroup;
 			children = (
-				7E72D55D29F89899006860F1 /* Cakey */,
 				7E72D54129F89449006860F1 /* Los Portales Ordering */,
 				7E72D54029F89449006860F1 /* Products */,
 			);
@@ -95,13 +94,6 @@
 				7E72D54929F8944A006860F1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		7E72D55D29F89899006860F1 /* Cakey */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cakey;
 			sourceTree = "<group>";
 		};
 		7E72D56029F89899006860F1 /* Models */ = {

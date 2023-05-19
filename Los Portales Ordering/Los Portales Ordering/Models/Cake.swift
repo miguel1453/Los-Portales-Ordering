@@ -7,7 +7,7 @@
 
 import FirebaseFirestoreSwift
 
-struct Cake: Identifiable, Decodable {
+struct Cake: Identifiable, Codable {
     
     @DocumentID var id: String?
     let customerName: String

@@ -16,7 +16,7 @@ struct Los_Portales_OrderingApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            CakeOrdersView()
+            contentView()
                 .environmentObject(CakesViewModel())
         }
     }

@@ -12,7 +12,7 @@ struct CakeOrdersView: View {
     @EnvironmentObject var vm: CakesViewModel
     @State var showsheet = false
     @State private var selection = 0
-   
+    
     var body: some View {
         NavigationStack {
             Image("logo")
@@ -22,35 +22,44 @@ struct CakeOrdersView: View {
             Text("Ordenes de Pastel")
                 .font(.title2)
                 .fontWeight(.bold)
-            Group {
-               if sizeClass == .regular {
-                       ScrollView {
-                           LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                               ForEach(vm.cakes) { cake in
-                                   NavigationLink(destination: CakeInfoView(cake: cake)) {
-                                       CakeCellView(cake: cake)
-                                   }
-                               }
-                           }
-                           .padding()
-                   }
-               } else {
-//                   ScrollView{
-//                       ForEach(vm.cakesInOrder) { name in
-//                           Text(name)
-//                       }
-//                   }
-                   ScrollView {
-                       ForEach(vm.cakes) { cake in
-                           NavigationLink(destination: CakeInfoView(cake: cake)) {
-                               CakeCellView(cake: cake)
-                           }
-                       }
-                   }
-               }
-            }
-            .sheet(isPresented: $showsheet) {
-                NewOrderView(showsheet: $showsheet)
+            ScrollView {
+                if !vm.todayCakes.isEmpty {
+                    Section(header: Text("Hoy").font(.title.bold())) {
+                        ForEach(vm.todayCakes) { cake in
+                            NavigationLink {
+                                CakeInfoView(cake: cake)
+                            } label: {
+                                CakeCellView(cake: cake)
+                            }
+                            
+                        }
+                    }
+                }
+                
+                if !vm.tomorrowCakes.isEmpty {
+                    Section(header: Text("Mañana").font(.title.bold())) {
+                        ForEach(vm.tomorrowCakes) { cake in
+                            NavigationLink {
+                                CakeInfoView(cake: cake)
+                            } label: {
+                                CakeCellView(cake: cake)
+                            }
+                        }
+                    }
+                }
+                
+                if !vm.dayAfterTomorrow.isEmpty {
+                    Section(header: Text("Pasado Mañana").font(.title.bold())) {
+                        ForEach(vm.dayAfterTomorrow) { cake in
+                            NavigationLink {
+                                CakeInfoView(cake: cake)
+                            } label: {
+                                CakeCellView(cake: cake)
+                            }
+                        }
+                    }
+                }
+                    
             }
             .toolbar {
                 ToolbarItem {
@@ -61,9 +70,19 @@ struct CakeOrdersView: View {
                     }
                 }
             }
+            
+            
+            
         }
+        
+        
+        .sheet(isPresented: $showsheet) {
+            NewOrderView(showsheet: $showsheet)
+        }
+        
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

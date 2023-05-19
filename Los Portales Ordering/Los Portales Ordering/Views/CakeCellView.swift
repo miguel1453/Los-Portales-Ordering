@@ -21,10 +21,10 @@ struct CakeCellView: View {
                 Text(cake.cakePickupTime)
             }
         }
-        .foregroundColor(Color.black)
+        .foregroundColor(Color("losportalesBlue"))
         .frame(width: 300)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.1)))
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color("losportalesYellow").opacity(0.3)))
     }
 }
 

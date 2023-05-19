@@ -17,7 +17,7 @@ struct NewOrderView: View {
     @State private var customerNumber = ""
     @State private var cakePickupDate = Date()
     @State private var cakePickupTime = ""
-    @State private var cakeColor = Color(.blue)
+    @State private var cakeColor = ""
     @State private var cakeSize = ""
     @State private var cakeMessage = ""
     @State private var cakeImage = ""
@@ -56,7 +56,8 @@ struct NewOrderView: View {
                 
                 }
                 Section {
-                    ColorPicker("Color", selection: $cakeColor,supportsOpacity: false)
+//                    ColorPicker("Color", selection: $cakeColor,supportsOpacity: false)
+                    TextField("Color", text: $cakeColor)
                     Picker("Tamaño", selection: $cakeSize) {
                         ForEach(Cake.sizes, id: \.self) {
                             Text($0)
@@ -74,9 +75,11 @@ struct NewOrderView: View {
                     Spacer()
                     Button {
                         if allFieldsFilled {
-                            showsheet.toggle()
-                            vm.uploadCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: cakePickupDate, cakePickupTime: cakePickupTime, cakeColor: cakeColor, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments)
-                            vm.fetchCakes()
+                            Task {
+                                showsheet.toggle()
+                                try await vm.uploadCake(customerName: customerName, customerNumber: customerNumber, cakePickupDate: cakePickupDate, cakePickupTime: cakePickupTime, cakeColor: cakeColor, cakeSize: cakeSize, cakeMessage: cakeMessage, cakeImage: cakeImage, cakeComments: cakeComments)
+                                try await vm.fetchCakes()
+                            }
                         } else {
                             showingAlert.toggle()
                         }

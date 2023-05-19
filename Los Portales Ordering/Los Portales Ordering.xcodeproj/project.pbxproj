@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E70494E29FC84C30078E2FF /* contentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70494D29FC84C30078E2FF /* contentView.swift */; };
+		7E70495029FC85460078E2FF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70494F29FC85460078E2FF /* SearchView.swift */; };
 		7E72D54329F89449006860F1 /* Los_Portales_OrderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E72D54229F89449006860F1 /* Los_Portales_OrderingApp.swift */; };
 		7E72D54729F8944A006860F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E72D54629F8944A006860F1 /* Assets.xcassets */; };
 		7E72D54A29F8944A006860F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E72D54929F8944A006860F1 /* Preview Assets.xcassets */; };
@@ -24,9 +26,13 @@
 		7E72D58229F8A256006860F1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E72D58129F8A256006860F1 /* FirebaseStorage */; };
 		7E72D58529F8A441006860F1 /* CakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E72D58429F8A441006860F1 /* CakeService.swift */; };
 		7E72D58729F8B540006860F1 /* CakeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E72D58629F8B540006860F1 /* CakeCellView.swift */; };
+		7E74C3A329FD568300EC978B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74C3A229FD568300EC978B /* SearchBar.swift */; };
+		7E74C3A629FD5B1000EC978B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74C3A529FD5B1000EC978B /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E70494D29FC84C30078E2FF /* contentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentView.swift; sourceTree = "<group>"; };
+		7E70494F29FC85460078E2FF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7E72D53F29F89449006860F1 /* Los Portales Ordering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Los Portales Ordering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E72D54229F89449006860F1 /* Los_Portales_OrderingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Los_Portales_OrderingApp.swift; sourceTree = "<group>"; };
 		7E72D54629F8944A006860F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +45,8 @@
 		7E72D57429F8A1BF006860F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7E72D58429F8A441006860F1 /* CakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeService.swift; sourceTree = "<group>"; };
 		7E72D58629F8B540006860F1 /* CakeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeCellView.swift; sourceTree = "<group>"; };
+		7E74C3A229FD568300EC978B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		7E74C3A529FD5B1000EC978B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		7E72D54129F89449006860F1 /* Los Portales Ordering */ = {
 			isa = PBXGroup;
 			children = (
+				7E74C3A429FD5AFE00EC978B /* Utils */,
 				7E72D57429F8A1BF006860F1 /* GoogleService-Info.plist */,
 				7E72D54229F89449006860F1 /* Los_Portales_OrderingApp.swift */,
 				7E72D56629F89899006860F1 /* Views */,
@@ -120,6 +129,8 @@
 				7E72D56829F89899006860F1 /* CakeInfoView.swift */,
 				7E72D56929F89899006860F1 /* CakeOrders.swift */,
 				7E72D58629F8B540006860F1 /* CakeCellView.swift */,
+				7E70494D29FC84C30078E2FF /* contentView.swift */,
+				7E70494F29FC85460078E2FF /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +141,15 @@
 				7E72D58429F8A441006860F1 /* CakeService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7E74C3A429FD5AFE00EC978B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7E74C3A229FD568300EC978B /* SearchBar.swift */,
+				7E74C3A529FD5B1000EC978B /* ImagePicker.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E70495029FC85460078E2FF /* SearchView.swift in Sources */,
 				7E72D57129F8989A006860F1 /* CakeInfoView.swift in Sources */,
 				7E72D57229F8989A006860F1 /* CakeOrders.swift in Sources */,
 				7E72D54329F89449006860F1 /* Los_Portales_OrderingApp.swift in Sources */,
@@ -221,6 +242,9 @@
 				7E72D58729F8B540006860F1 /* CakeCellView.swift in Sources */,
 				7E72D56F29F8989A006860F1 /* CakesViewModel.swift in Sources */,
 				7E72D56D29F8989A006860F1 /* Cake.swift in Sources */,
+				7E70494E29FC84C30078E2FF /* contentView.swift in Sources */,
+				7E74C3A629FD5B1000EC978B /* ImagePicker.swift in Sources */,
+				7E74C3A329FD568300EC978B /* SearchBar.swift in Sources */,
 				7E72D58529F8A441006860F1 /* CakeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
